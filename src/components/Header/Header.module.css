@@ -3,5 +3,8 @@
   background-color: #136fc0;
 }
 .header img {
-  height: 50px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 3rem;
 }
