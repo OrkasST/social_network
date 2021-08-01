@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './MyPosts.module.css';
+import Post from './Post/Post';
 
 const MyPosts = () => {
   return (
@@ -8,15 +9,14 @@ const MyPosts = () => {
         My posts
       </div>
       <div>
-        New post
+        <textarea></textarea>
+        <button>Add new post</button>
       </div>
       <div className={s.posts}>
-        <div className={s.item}>
-          post 1
-        </div>
-        <div className={s.item}>
-          post 2
-        </div>
+        <Post message='Hello world!' likes='0' />
+        <Post  likes='0' />
+        <Post  likes='0' />
+        <Post  likes='0' />
       </div>
     </div>
   )
