@@ -8,3 +8,7 @@
   grid-template-rows: 4rem 1fr;
   grid-template-columns: 2fr 10fr;
 }
+.app-content-wrapper {
+  grid-area: content;
+  background-color: #7fb5e4;
+}
