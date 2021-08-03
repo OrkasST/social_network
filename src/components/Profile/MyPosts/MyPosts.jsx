@@ -2,14 +2,15 @@ import React from 'react';
 import s from './MyPosts.module.css';
 import Post from './Post/Post';
 
-const MyPosts = () => {
+const MyPosts = (props) => {
   return (
     <div>
-      <div>
+      <h3>
         My posts
-      </div>
+      </h3>
       <div>
         <textarea></textarea>
+        <br />
         <button>Add new post</button>
       </div>
       <div className={s.posts}>

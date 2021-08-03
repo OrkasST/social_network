@@ -1,0 +1,11 @@
+.dialog {
+    position: relative;
+}
+.dialog a {
+    margin-left: 0.5rem;
+    text-decoration: none;
+}
+
+.active {
+    color: #ffd700;
+}
