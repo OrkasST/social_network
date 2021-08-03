@@ -6,3 +6,6 @@
   text-decoration: none;
   color: #ffffff;
 }
+.nav a .active {
+  color: gold;
+}
