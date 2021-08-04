@@ -1,6 +1,6 @@
 import React from 'react';
-import Dialog from './Dialog/Dialog';
-import MessageItem from './Message/MessageItem';
+import Dialogs from './Dialogs/Dialogs';
+import MessageBlock from './MessageBlock/MessageBlock';
 import s from './Messages.module.css';
 
 const Messages = (props) => {
@@ -20,18 +20,10 @@ const Messages = (props) => {
     {id : 4, text : 'Yo, are u here?'}
   ];
 
-  let dialogs = dialogsData.map(dialog => <Dialog name={dialog.name} id={dialog.id} />);
-  let messages = messagesData.map(message => <MessageItem text={message.text} />);
-
   return (
     <div className={s.dialogs}>
-      <div className={s.dialogItems}>
-        { dialogs }
-      </div>
-
-      <div className={s.dialogMessages}>
-        { messages }
-      </div>
+      <MessageBlock data={messagesData} />
+      <Dialogs data={dialogsData} />
     </div>
   )
 }

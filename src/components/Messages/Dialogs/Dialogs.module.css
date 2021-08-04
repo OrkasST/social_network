@@ -1,0 +1,15 @@
+.dialogs {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    max-height: 100vh;
+}
+
+.dialogItems {
+    padding: 1rem 0;
+    border-right: solid #00014e 1px;
+}
+
+.dialogMessages {
+    margin-left: 0.6rem;
+    padding-top: 1rem;
+}
