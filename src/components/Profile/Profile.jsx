@@ -4,18 +4,10 @@ import s from './Profile.module.css';
 import ProfileInfo from './ProfileInfo/ProfileInfo';
 
 const Profile = (props) => {
-  
-  let postsData = [
-    {id : 1, text : 'Hello world!', likesCount : 11},
-    {id : 2, text : 'My first posts...', likesCount : 9},
-    {id : 3, text : 'Hello guys!', likesCount : 1},
-    {id : 4, text : 'Yo! I love life!', likesCount : 0}
-  ];
-
   return (
     <div>
       <ProfileInfo />
-      <MyPosts data={postsData}/>
+      <MyPosts data={props.data.postsData}/>
     </div>
   )
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageItem from './MessageBlock/Message/MessageItem';
+import MessageItem from './Message/MessageItem';
 import s from './MessageBlock.module.css';
 
 const MessageBlock = (props) => {

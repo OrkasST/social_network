@@ -1,5 +1,5 @@
 import React from 'react';
-import Dialog from './Dialogs/Dialog/Dialog';
+import Dialog from './Dialog/Dialog';
 import s from './Dialogs.module.css';
 
 const Dialogs = (props) => {
