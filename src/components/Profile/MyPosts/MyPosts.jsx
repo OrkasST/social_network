@@ -11,6 +11,10 @@ const MyPosts = (props) => {
     {id : 4, text : 'Yo!', likesCount : 0}
   ];
 
+  let posts = postsData.map( post =>
+    <Post text={post.text} likesCount={post.likesCount} />
+  );
+
   return (
     <div>
       <h3>
@@ -22,10 +26,7 @@ const MyPosts = (props) => {
         <button>Add new post</button>
       </div>
       <div className={s.posts}>
-        <Post text={postsData[0].text} likesCount={postsData[0].likesCount} />
-        <Post text={postsData[1].text} likesCount={postsData[1].likesCount} />
-        <Post text={postsData[2].text} likesCount={postsData[2].likesCount} />
-        <Post text={postsData[3].text} likesCount={postsData[3].likesCount} />
+        { posts }
       </div>
     </div>
   )
