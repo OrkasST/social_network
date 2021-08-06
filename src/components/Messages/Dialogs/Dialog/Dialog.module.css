@@ -5,6 +5,13 @@
     margin-left: 0.5rem;
     text-decoration: none;
 }
+.dialogAva {
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    overflow: hidden;
+    font-size: 0.4rem;
+}
 
 .active {
     color: #ffd700;
