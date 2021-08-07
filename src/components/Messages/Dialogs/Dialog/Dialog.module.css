@@ -1,18 +1,27 @@
 .dialog {
     position: relative;
+    border-bottom: 0.5px groove #170666;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.8rem;
 }
 .dialog a {
     margin-left: 0.5rem;
     text-decoration: none;
 }
 .dialogAva {
-    width: 1rem;
-    height: 1rem;
+    margin-left: 0.5rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
+    border: 0.1px solid #170666;
     overflow: hidden;
     font-size: 0.4rem;
 }
-
+.dialogAva_Image {
+    height: 100%;
+    width: 100%;
+}
 .active {
     color: #ffd700;
 }

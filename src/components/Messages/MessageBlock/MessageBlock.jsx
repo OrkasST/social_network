@@ -4,7 +4,7 @@ import s from './MessageBlock.module.css';
 
 const MessageBlock = (props) => {
 
-  let messages = props.data.map(message => <MessageItem text={message.text} />);
+  let messages = props.data.map(message => <MessageItem data={message} />);
 
   return (
       <div className={s.dialogMessages}>
