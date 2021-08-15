@@ -48,4 +48,25 @@ let state = {
   }
 }
 
+export const addPost = (postText) => {
+  let posts = state.profileData.postsData;
+  let Post = {
+    id: posts[posts.length-1].id + 1, 
+    text: postText, 
+    likesCount: 0
+  }
+
+  posts.push(Post);
+}
+
+export const addMessage = (messageText) => {
+  let messages = state.messagesData.messagesData;
+  let Message = {
+    id: 0, 
+    text: messageText
+  }
+
+  messages.push(Message);
+}
+
 export default state;
