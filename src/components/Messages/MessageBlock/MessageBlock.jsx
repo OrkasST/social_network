@@ -10,6 +10,7 @@ const MessageBlock = (props) => {
   const addMessage = () => {
     let text = newMessageElem.current.value;
     props.addMessage(text);
+    newMessageElem.current.value = '';
   }
 
   return (

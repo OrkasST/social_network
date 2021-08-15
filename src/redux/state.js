@@ -1,3 +1,5 @@
+import { renderApp } from '../renderer';
+
 let state = {
   messagesData: {
     dialogsData: [
@@ -57,6 +59,7 @@ export const addPost = (postText) => {
   }
 
   posts.push(Post);
+  renderApp(state);
 }
 
 export const addMessage = (messageText) => {
@@ -67,6 +70,7 @@ export const addMessage = (messageText) => {
   }
 
   messages.push(Message);
+  renderApp(state);
 }
 
 export default state;
