@@ -1,4 +1,6 @@
-import { renderApp } from '../renderer';
+let renderApp = () => {
+  //...
+}
 
 let state = {
   messagesData: {
@@ -88,3 +90,7 @@ export const updateMessageText = (newText) => {
 }
 
 export default state;
+
+export const subscribe = (observer) => {
+  renderApp = observer;
+}
