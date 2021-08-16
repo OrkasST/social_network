@@ -19,7 +19,8 @@ let state = {
       { id: 1, text: 'I\'m Ok :) Thanks' },
       { id: 1, text: 'What do u do today evening' },
       { id: 1, text: 'Yo! Are u here?' }
-    ]
+    ],
+    newMessageText: 'Hi!'
   },
   profileData: {
     postsData: [
@@ -27,7 +28,8 @@ let state = {
       { id: 2, text: 'My first posts...', likesCount: 12 },
       { id: 3, text: 'Hello guys!', likesCount: 9 },
       { id: 4, text: 'Yo! I love life!', likesCount: 5 }
-    ]
+    ],
+    newPostText: 'Hello World!'
   },
   newsData : {
 
@@ -50,26 +52,38 @@ let state = {
   }
 }
 
-export const addPost = (postText) => {
+export const addPost = () => {
   let posts = state.profileData.postsData;
   let Post = {
     id: posts[posts.length-1].id + 1, 
-    text: postText, 
+    text: state.profileData.newPostText, 
     likesCount: 0
   }
 
   posts.push(Post);
+  state.profileData.newPostText = '';
   renderApp(state);
 }
 
-export const addMessage = (messageText) => {
+export const updatePostText = (newText) => {
+  state.profileData.newPostText = newText;
+  renderApp(state);
+}
+
+export const addMessage = () => {
   let messages = state.messagesData.messagesData;
   let Message = {
     id: 0, 
-    text: messageText
+    text: state.messagesData.newMessageText
   }
 
   messages.push(Message);
+  state.messagesData.newMessageText = '';
+  renderApp(state);
+}
+
+export const updateMessageText = (newText) => {
+  state.messagesData.newMessageText = newText;
   renderApp(state);
 }
 

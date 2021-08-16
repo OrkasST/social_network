@@ -7,7 +7,11 @@ const Messages = (props) => {
   return (
     <div className={s.dialogs}>
       <Dialogs data={props.data.dialogsData} />
-      <MessageBlock data={props.data.messagesData} addMessage={props.addMessage} />
+      <MessageBlock 
+        data={props.data.messagesData}
+        addMessage={props.addMessage}
+        newMessageText={props.data.newMessageText}
+        updateMessageText={props.updateMessageText} />
     </div>
   )
 }

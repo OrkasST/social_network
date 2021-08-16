@@ -8,16 +8,22 @@ const MessageBlock = (props) => {
   let newMessageElem = React.createRef();
 
   const addMessage = () => {
+    props.addMessage();
+  }
+
+  const updateMessageText = () => {
     let text = newMessageElem.current.value;
-    props.addMessage(text);
-    newMessageElem.current.value = '';
+    props.updateMessageText(text);
   }
 
   return (
       <div className={s.dialogMessages}>
         { messages }
         <div>
-          <textarea ref={newMessageElem}></textarea>
+          <textarea
+            onChange={updateMessageText}
+            ref={newMessageElem}
+            value={props.newMessageText} />
           <button onClick={addMessage} >Send message</button>
         </div>
       </div>
