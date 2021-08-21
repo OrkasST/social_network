@@ -8,12 +8,12 @@ const MessageBlock = (props) => {
   let newMessageElem = React.createRef();
 
   const addMessage = () => {
-    props.addMessage();
+    props.dispatch({ type : 'ADD-MESSAGE' });
   }
 
   const updateMessageText = () => {
     let text = newMessageElem.current.value;
-    props.updateMessageText(text);
+    props.dispatch({ type : 'UPDATE-MESSAGE-TEXT', newText : text });
   }
 
   return (
