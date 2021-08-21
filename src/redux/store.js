@@ -1,8 +1,9 @@
 let renderApp = () => {
   //...
 }
+
 let store = {
-  state : {
+  _state : {
   messagesData: {
     dialogsData: [
       { id: 1, name: 'Andry', ava: 'https://thumbs.dreamstime.com/b/african-american-black-man-face-over-grey-background-89747920.jpg' },
@@ -54,43 +55,48 @@ let store = {
   }
 },
 
+ getState() {
+   return this._state;
+ },
+
  addPost() {
-  let posts = state.profileData.postsData;
+  let posts = this._state.profileData.postsData;
   let Post = {
-    id: posts[posts.length-1].id + 1, 
-    text: state.profileData.newPostText, 
+    id: posts[posts.length-1].id + 1,
+    text: this._state.profileData.newPostText,
     likesCount: 0
   }
 
   posts.push(Post);
-  state.profileData.newPostText = '';
-  renderApp(state);
+  this._state.profileData.newPostText = '';
+  renderApp(this);
 },
 
  updatePostText(newText) {
-  state.profileData.newPostText = newText;
-  renderApp(state);
+  this._state.profileData.newPostText = newText;
+  renderApp(this);
 },
 
  addMessage() {
-  let messages = state.messagesData.messagesData;
+  let messages = this._state.messagesData.messagesData;
   let Message = {
     id: 0, 
-    text: state.messagesData.newMessageText
+    text: this._state.messagesData.newMessageText
   }
 
   messages.push(Message);
-  state.messagesData.newMessageText = '';
-  renderApp(state);
+  this._state.messagesData.newMessageText = '';
+  renderApp(this);
 },
 
  updateMessageText(newText) {
-  state.messagesData.newMessageText = newText;
-  renderApp(state);
+  this._state.messagesData.newMessageText = newText;
+  renderApp(this);
 },
 
- subscribe = (observer) => {
+ subscribe(observer) {
   renderApp = observer;
 }
 }
 
+export default store;

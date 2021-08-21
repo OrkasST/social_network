@@ -3,22 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state, { subscribe, addMessage, addPost, updateMessageText, updatePostText } from './redux/state';
+//import state, { subscribe, addMessage, addPost, updateMessageText, updatePostText } from './redux/state';
+import store from './redux/store';
 
-export const renderApp = () => {
+export const renderApp = (store) => {
   ReactDOM.render(
     <React.StrictMode>
-      <App state={state}
-        addPost={addPost}
-        addMessage={addMessage}
-        updatePostText={updatePostText}
-        updateMessageText={updateMessageText} />
+      <App state={store.getState()} store={store} />
     </React.StrictMode>,
     document.getElementById('root')
   );
   reportWebVitals();
 };
 
-renderApp();
+renderApp(store);
 
-subscribe(renderApp);
+store.subscribe(renderApp);
