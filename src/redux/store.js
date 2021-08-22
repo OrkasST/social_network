@@ -1,3 +1,7 @@
+import messagesReducer from "./messages_reducer";
+import navbarReducer from "./navbar_reducer";
+import profileReducer from "./profile_reducer";
+
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 const ADD_MESSAGE = 'ADD-MESSAGE';
@@ -5,7 +9,7 @@ const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
 let store = {
   _state: {
-    messagesData: {
+    messagesPage: {
       dialogsData: [
         { id: 1, name: 'Andry', ava: 'https://thumbs.dreamstime.com/b/african-american-black-man-face-over-grey-background-89747920.jpg' },
         { id: 2, name: 'Mary', ava: 'https://s.zefirka.net/images/2015-10-01/20-samyx-krasivyx-aktris-gollivuda-po-versii-google/20-samyx-krasivyx-aktris-gollivuda-po-versii-google-7.jpg' },
@@ -26,7 +30,7 @@ let store = {
       ],
       newMessageText: ''
     },
-    profileData: {
+    profilePage: {
       postsData: [
         { id: 1, text: 'Hello world!', likesCount: 11 },
         { id: 2, text: 'My first posts...', likesCount: 12 },
@@ -35,13 +39,13 @@ let store = {
       ],
       newPostText: ''
     },
-    newsData: {
+    newsPage: {
 
     },
-    musicData: {
+    musicPage: {
 
     },
-    settingsData: {
+    settingsPage: {
 
     },
     navbarData: {
@@ -64,35 +68,11 @@ let store = {
   },
 
   dispatch(action) {
-    let type = action.type;
-    if (type === ADD_POST) {
-      let posts = this._state.profileData.postsData;
-      let Post = {
-        id: posts[posts.length - 1].id + 1,
-        text: this._state.profileData.newPostText,
-        likesCount: 0
-      }
+    this.messagesPage = messagesReducer(this._state.messagesPage, action);
+    this.profilePage = profileReducer(this._state.profilePage, action);
+    this.navbarData = navbarReducer(this._state.navbarData, action);
 
-      posts.push(Post);
-      this._state.profileData.newPostText = '';
-      this._callSubscriber(this);
-    } else if(type === UPDATE_NEW_POST_TEXT) {
-      this._state.profileData.newPostText = action.newText;
-      this._callSubscriber(this);
-    } else if(type === ADD_MESSAGE) {
-      let messages = this._state.messagesData.messagesData;
-      let Message = {
-        id: 0,
-        text: this._state.messagesData.newMessageText
-      }
-  
-      messages.push(Message);
-      this._state.messagesData.newMessageText = '';
-      this._callSubscriber(this);
-    } else if(type === UPDATE_NEW_MESSAGE_TEXT) {
-      this._state.messagesData.newMessageText = action.newText;
-      this._callSubscriber(this);
-    }
+    this._callSubscriber(this);
   },
 
   subscribe(observer) {
