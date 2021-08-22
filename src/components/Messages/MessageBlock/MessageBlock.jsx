@@ -1,5 +1,5 @@
 import React from 'react';
-import { sendMessage_ActionCreator, updateNewMessageText_ActionCreator } from '../../../redux/store';
+import { sendMessage_ActionCreator, updateNewMessageText_ActionCreator } from '../../../redux/messages_reducer';
 import MessageItem from './Message/MessageItem';
 import s from './MessageBlock.module.css';
 

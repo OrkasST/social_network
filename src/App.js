@@ -13,7 +13,7 @@ const App = (props) => {
   return (
     <div className='app-wrapper'>
       <Header />
-      <Navbar data={props.state.navbarData} />
+      <Navbar data={props.state.navbar} />
       <div className='app-content-wrapper'>
         <Route path='/profile' render={() => <Profile
           data={props.state.profilePage}
