@@ -1,19 +1,19 @@
 import React from 'react';
+import { sendMessage_ActionCreator, updateNewMessageText_ActionCreator } from '../../../redux/store';
 import MessageItem from './Message/MessageItem';
 import s from './MessageBlock.module.css';
 
 const MessageBlock = (props) => {
 
   let messages = props.data.map(message => <MessageItem data={message} />);
-  let newMessageElem = React.createRef();
 
-  const addMessage = () => {
-    props.dispatch({ type : 'ADD-MESSAGE' });
+  const sendMessage = () => {
+    props.dispatch( sendMessage_ActionCreator() );
   }
 
-  const updateMessageText = () => {
-    let text = newMessageElem.current.value;
-    props.dispatch({ type : 'UPDATE-MESSAGE-TEXT', newText : text });
+  const updateNewMessageText = (e) => {
+    let text = e.target.value;
+    props.dispatch( updateNewMessageText_ActionCreator(text) );
   }
 
   return (
@@ -21,10 +21,10 @@ const MessageBlock = (props) => {
         { messages }
         <div>
           <textarea
-            onChange={updateMessageText}
-            ref={newMessageElem}
+            placeholder='Enter your message...'
+            onChange={updateNewMessageText}
             value={props.newMessageText} />
-          <button onClick={addMessage} >Send message</button>
+          <button onClick={sendMessage} >Send</button>
         </div>
       </div>
   )

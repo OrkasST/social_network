@@ -6,6 +6,8 @@ const Friends = (props) => {
   let friends = props.friendList.map( (friend, i) => {
     if (i <= 2) {
       return <FriendLink data={friend} />
+    } else {
+      return null;
     }
   });
   return (
