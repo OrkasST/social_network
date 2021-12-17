@@ -7,13 +7,13 @@ const MessageBlock = (props) => {
 
   let messages = props.data.map(message => <MessageItem data={message} />);
 
-  const sendMessage = () => {
-    props.dispatch( sendMessage_ActionCreator() );
+  const onSendMessageClick = () => {
+    props.sendMessage();
   }
 
-  const updateNewMessageText = (e) => {
+  const onNewMessageTextUpdate = (e) => {
     let text = e.target.value;
-    props.dispatch( updateNewMessageText_ActionCreator(text) );
+    props.updateNewMessageText(text);
   }
 
   return (
@@ -22,9 +22,9 @@ const MessageBlock = (props) => {
         <div>
           <textarea
             placeholder='Enter your message...'
-            onChange={updateNewMessageText}
+            onChange={onNewMessageTextUpdate}
             value={props.newMessageText} />
-          <button onClick={sendMessage} >Send</button>
+          <button onClick={onSendMessageClick} >Send</button>
         </div>
       </div>
   )

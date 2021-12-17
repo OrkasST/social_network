@@ -15,15 +15,11 @@ const App = (props) => {
       <Header />
       <Navbar data={props.state.navbar} />
       <div className='app-content-wrapper'>
-        <Route path='/profile' render={() => <Profile
-          data={props.state.profilePage}
-          dispatch={props.dispatch} />} />
-        <Route path='/dialogs' render={() => <Messages
-          data={props.state.messagesPage}
-          dispatch={props.dispatch} />} />
-        <Route path='/news' render={() => <News data={props.state.newsPage} />} />
-        <Route path='/music' render={() => <Music data={props.state.musicPage} />} />
-        <Route path='/settings' render={() => <Settings data={props.state.settingsPage} />} />
+        <Route path='/profile' render={() => <Profile /* store={props.store} */ />} />
+        <Route path='/dialogs' render={() => <Messages /* dialogsData={props.state.messagesPage.dialogsData} store={props.store} */ />} />
+        {/* <Route path='/news' render={() => <News data={props.state.newsPage} />} /> */}
+        {/* <Route path='/music' render={() => <Music data={props.state.musicPage} />} /> */}
+        {/* <Route path='/settings' render={() => <Settings data={props.state.settingsPage} />} /> */}
       </div>
     </div>
   )
