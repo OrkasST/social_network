@@ -3,7 +3,7 @@ import { sendMessage_ActionCreator, updateNewMessageText_ActionCreator } from '.
 import StoreContext from '../../../StoreContext';
 import MessageBlock from './MessageBlock';
 
-const MessageBlockContainer = (props) => {
+const MessageBlockContainer = () => {
   return (
     <StoreContext.Consumer>{
       (store) => {

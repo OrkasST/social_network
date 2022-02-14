@@ -3,7 +3,7 @@ import StoreContext from '../../../StoreContext';
 import Dialogs from './Dialogs';
 
 
-const DialogsContainer = (props) => {
+const DialogsContainer = () => {
 
   return (
     <StoreContext.Consumer>{

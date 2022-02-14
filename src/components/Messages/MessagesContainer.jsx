@@ -1,7 +1,7 @@
 import React from 'react';
 import Messages from './Messages';
 
-const MessagesContainer = (props) => {
+const MessagesContainer = () => {
   return (
     <Messages />
   )
