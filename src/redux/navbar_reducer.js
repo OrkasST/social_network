@@ -1,4 +1,11 @@
 let initialState = {
+    links: [
+        {path: "/profile", name: "Profile"},
+        {path: "/dialogs", name: "Messages"},
+        {path: "/news", name: "News"},
+        {path: "/music", name: "Music"},
+        {path: "/settings", name: "Settings"},
+    ],
     friendList: [
         { id: 1, name: 'Andry', ava: 'https://thumbs.dreamstime.com/b/african-american-black-man-face-over-grey-background-89747920.jpg' },
         { id: 2, name: 'Mary', ava: 'https://s.zefirka.net/images/2015-10-01/20-samyx-krasivyx-aktris-gollivuda-po-versii-google/20-samyx-krasivyx-aktris-gollivuda-po-versii-google-7.jpg' },
