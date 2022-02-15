@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 // import { Provider } from './StoreContext';
 import { Provider } from "react-redux";
 
-export const renderApp = (state) => {
+export const renderApp = () => {
   ReactDOM.render(
     <BrowserRouter>
       <Provider store={store} >
@@ -20,8 +20,8 @@ export const renderApp = (state) => {
   reportWebVitals();
 };
 
-renderApp(store.getState());
+renderApp();
 
-store.subscribe(() => {
-  renderApp(store.getState());
-});
+// store.subscribe(() => {
+//   renderApp(store.getState());
+// });
