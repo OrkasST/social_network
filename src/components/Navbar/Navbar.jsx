@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Friends from './Friends/Friends';
 
 const Navbar = (props) => {
-  let links = props.data.links.map(link => <NavLink to={link.path} className={ ({isActive}) => s.link + (isActive ? ` ${s.active}` : "")} >{link.name}</NavLink>)
+  let links = props.data.links.map(link => <NavLink to={link.path} className={ ({isActive}) => s.link + (isActive ? ` ${s.active}` : "")} key={link.id} >{link.name}</NavLink>)
   
   return (
     <nav className={`${s.nav}`}>

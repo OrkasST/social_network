@@ -5,7 +5,7 @@ import s from './MessageBlock.module.css';
 
 const MessageBlock = (props) => {
 
-  let messages = props.data.map(message => <MessageItem data={message} />);
+  let messages = props.data.map(message => <MessageItem data={message} key={message.id} />);
 
   const onSendMessageClick = () => {
     props.sendMessage();

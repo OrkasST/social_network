@@ -12,13 +12,13 @@ let initialState = {
   ],
 
   messagesData: [
-    { id: 1, text: 'Hi!' },
-    { id: 1, text: 'How are you?' },
-    { id: 0, text: 'Hi :)' },
-    { id: 0, text: 'I\'m fine!\nWhat about you?' },
-    { id: 1, text: 'I\'m Ok :) Thanks' },
-    { id: 1, text: 'What do u do today evening' },
-    { id: 1, text: 'Yo! Are u here?' }
+    { id: '1.1', text: 'Hi!' },
+    { id: '1.2', text: 'How are you?' },
+    { id: '2.3', text: 'Hi :)' },
+    { id: '2.4', text: 'I\'m fine!\nWhat about you?' },
+    { id: '1.5', text: 'I\'m Ok :) Thanks' },
+    { id: '1.6', text: 'What do u do today evening' },
+    { id: '1.7', text: 'Yo! Are u here?' }
   ],
   newMessageText: ''
 };
@@ -27,22 +27,23 @@ const messagesReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_MESSAGE: {
-      let stateCopy = { ...state };
-      stateCopy.messagesData = [...state.messagesData];
-      let messages = stateCopy.messagesData;
+      let lastId = Number(state.messagesData[state.messagesData.length-1].id.split('.')[1]);
       let Message = {
-        id: 0,
-        text: stateCopy.newMessageText
+        id: `2.${lastId + 1}`,
+        text: state.newMessageText
       }
-      messages.push(Message);
-      stateCopy.newMessageText = '';
-      return stateCopy;
+      return { 
+        ...state,
+        messagesData: [...state.messagesData, Message],
+        newMessageText: ''
+      }
     }
 
     case UPDATE_NEW_MESSAGE_TEXT: {
-      let stateCopy = { ...state };
-      stateCopy.newMessageText = action.newText;
-      return stateCopy;
+      return { 
+        ...state,
+        newMessageText: action.newText
+      }
     }
 
     default:
