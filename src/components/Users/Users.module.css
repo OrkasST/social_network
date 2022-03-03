@@ -1,0 +1,9 @@
+.page {
+    padding: 0.1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.selected {
+    font-weight: bold;
+}

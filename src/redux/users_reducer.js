@@ -2,21 +2,15 @@ const SHOW_MORE = 'SHOW-MORE';
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET-USERS';
+const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
+const SET_TOTAL_COUNT = 'SET-TOTAL-COUNT';
 
 
 let initialState = {
-  users: [
-    { id: 1, name: 'Michael', photoUrl: 'https://www.man-shop.eu/media/image/19/07/c7/HerrenBz6datKT7kMmG.png',
-      followed: false, status: 'Traveling is in my soul', location : {country: 'USA', city: 'New York'} },
-    { id: 2, name: 'Alexey', photoUrl: 'https://www.man-shop.eu/media/image/19/07/c7/HerrenBz6datKT7kMmG.png',
-      followed: false, status: 'Sleeeeep....', location : {country: 'Belarus', city: 'Brest'} },
-    { id: 3, name: 'Voitech', photoUrl: 'https://www.man-shop.eu/media/image/19/07/c7/HerrenBz6datKT7kMmG.png',
-      followed: true, status: 'Dzien dobry, panove', location : {country: 'Poland', city: 'Wrotslaw'} },
-    { id: 4, name: 'Oleg', photoUrl: 'https://www.man-shop.eu/media/image/19/07/c7/HerrenBz6datKT7kMmG.png',
-      followed: false, status: 'Hey evryone!', location : {country: 'Ukraine', city: 'Kiev'} },
-    { id: 5, name: 'Georgiy', photoUrl: 'https://www.man-shop.eu/media/image/19/07/c7/HerrenBz6datKT7kMmG.png',
-      followed: true, status: 'I am a KING!', location : {country: 'Russia', city: 'Moscow'} }
-  ]
+  users: [ ],
+  pageSize: 5,
+  totalUsersCount: 0,
+  currentPage: 1
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -39,7 +33,19 @@ const usersReducer = (state = initialState, action) => {
     case SET_USERS:
       return {
         ...state,
-        users: [...state.users, ...action.users]
+        users: [...action.users]
+      }
+    
+    case SET_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage
+      }
+
+    case SET_TOTAL_COUNT:
+      return {
+        ...state,
+        totalUsersCount: action.totalUsersCount
       }
 
     default:
@@ -58,3 +64,5 @@ export const showMoreAC = () => {
 export const followAC = (userId) => { return { type: FOLLOW, userId } };
 export const unfollowAC = (userId) => { return { type: UNFOLLOW, userId } };
 export const setUsersAC = (users) => { return { type: SET_USERS, users } };
+export const setCurrentPageAC = (currentPage) => { return { type: SET_CURRENT_PAGE, currentPage } };
+export const setTotalUsersCountAC = (totalUsersCount) => { return { type: SET_TOTAL_COUNT, totalUsersCount } };
