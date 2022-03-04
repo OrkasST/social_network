@@ -20,17 +20,16 @@ const MyPosts = (props) => {
   }
 
   return (
-    <div>
+    <div className={s.wrapper}>
       <h3>
         My posts
       </h3>
-      <div>
+      <div className={s.newPostEnter}>
         <textarea
           placeholder='Enter your text...'
           onChange={ updateNewPostText } 
           ref={ newPostElem } 
           value={ props.newPostText } />
-        <br />
         <button onClick={ addPost } >Add new post</button>
       </div>
       <div className={ s.posts }>

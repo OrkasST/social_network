@@ -28,9 +28,29 @@
     width: 70%;
     border-radius: 1rem;
     padding: 0.5rem;
+    overflow-y: auto;
+    resize: none;
 }
 
 .newMessage button {
     height: 40%;
     margin-left: 3rem;
+}
+.newMessage button:hover {
+    box-shadow: 0 0 0.5rem 0.3rem rgba(63, 63, 63, 0.1);
+}
+
+.newMessage textarea::-webkit-scrollbar {
+    width: 0.4rem;
+    cursor: pointer;
+}
+.newMessage textarea::-webkit-scrollbar-track {
+    background-color: inherit;
+    margin-block: 0.5rem;
+    cursor: pointer;
+}
+.newMessage textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(78, 83, 121, 0.5);
+    border-radius: 0.4rem;
+    
 }

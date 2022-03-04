@@ -13,3 +13,16 @@
   grid-area: content;
   background-color: #7fb5e4;
 }
+
+
+::-webkit-scrollbar {
+  width: .5vw;
+}
+::-webkit-scrollbar-track {
+  background-color: inherit;
+  margin-block: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(78, 83, 121, 0.5);
+  border-radius: 1rem;
+}

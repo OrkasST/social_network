@@ -41,6 +41,7 @@ const messagesReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_MESSAGE: {
       let lastId = Number(state.messagesData[state.selectedDialog][state.messagesData[state.selectedDialog].length - 1].id.split('.')[1]);
+      if (state.newMessageText === '') return state;
       let Message = {
         id: `2.${lastId + 1}`,
         text: state.newMessageText
@@ -74,21 +75,6 @@ const messagesReducer = (state = initialState, action) => {
 
 export default messagesReducer;
 
-export const sendMessage_ActionCreator = () => {
-  return {
-    type: ADD_MESSAGE
-  }
-}
-export const updateNewMessageText_ActionCreator = (text) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_TEXT,
-    newText: text
-  }
-}
-
-export const selectDialog_AC = (id) => {
-  return {
-    type: SELECT_DIALOG,
-    id
-  }
-}
+export const sendMessage = () => { return { type: ADD_MESSAGE } }
+export const updateNewMessageText = (text) => { return { type: UPDATE_NEW_MESSAGE_TEXT, newText: text } }
+export const selectDialog = (id) => { return { type: SELECT_DIALOG, id } }

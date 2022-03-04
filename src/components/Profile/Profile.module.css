@@ -1,3 +1,5 @@
 .wrapper {
+  height: 92vh;
   display: block;
+  overflow-y: auto;
 }

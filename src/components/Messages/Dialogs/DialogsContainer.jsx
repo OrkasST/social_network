@@ -2,7 +2,7 @@ import React from 'react';
 // import StoreContext from '../../../StoreContext';
 import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
-import { selectDialog_AC } from '../../../redux/messages_reducer';
+import { selectDialog } from '../../../redux/messages_reducer';
 
 
 
@@ -22,19 +22,7 @@ import { selectDialog_AC } from '../../../redux/messages_reducer';
 //   )
 // }
 
-let mapStateToProps = (state) => {
-  return {
-    data: state.messagesPage.dialogsData
-  }
-}
-let mapDispatchToProps = (dispatch) => {
-  return {
-    selectDialog: (id) => {
-      dispatch(selectDialog_AC(id));
-    }
-  }
-}
+let mapStateToProps = (state) => { return { data: state.messagesPage.dialogsData } }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs)
-
+const DialogsContainer = connect(mapStateToProps, { selectDialog })(Dialogs)
 export default DialogsContainer;

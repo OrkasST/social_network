@@ -1,3 +1,29 @@
+.wrapper {
+  margin-left: 2rem;
+}
+
 .posts {
   padding: 0;
+  margin-left: -1rem;
+}
+
+.newPostEnter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 3rem;
+  margin-left: 2rem;
+}
+
+.newPostEnter textarea {
+  border-radius: 0.6rem;
+  padding: 0.5rem;
+  width: 40%;
+  height: 4.5rem;
+  resize: none;
+}
+
+
+.newPostEnter button {
+  margin-left: 2rem;
 }
