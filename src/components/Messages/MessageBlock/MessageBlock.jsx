@@ -5,7 +5,7 @@ import s from './MessageBlock.module.css';
 
 const MessageBlock = (props) => {
 
-  let messages = props.data.map(message => <MessageItem data={message} key={message.id} />);
+  let messages = props.data[props.selectedDialog] ? props.data[props.selectedDialog].map(message => <MessageItem data={message} key={message.id} />) : ['no messages'];
 
   const onSendMessageClick = () => {
     props.sendMessage();
@@ -16,17 +16,22 @@ const MessageBlock = (props) => {
     props.updateNewMessageText(text);
   }
 
-  return (
+  return props.selectedDialog > 0 ? (
+    <div className={s.wrapper} >
       <div className={s.dialogMessages}>
-        { messages }
-        <div>
-          <textarea
-            placeholder='Enter your message...'
-            onChange={onNewMessageTextUpdate}
-            value={props.newMessageText} />
-          <button onClick={onSendMessageClick} >Send</button>
-        </div>
+        {messages}
       </div>
+      <div className={s.newMessage}>
+        <textarea
+          placeholder='Enter your message...'
+          onChange={onNewMessageTextUpdate}
+          value={props.newMessageText} />
+          
+        <button onClick={onSendMessageClick} >Send</button>
+      </div>
+    </div>
+  ) : (
+    <div className={s.dialogMessages}></div>
   )
 }
 

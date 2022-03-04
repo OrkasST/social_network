@@ -2,6 +2,7 @@ import React from 'react';
 // import StoreContext from '../../../StoreContext';
 import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
+import { selectDialog_AC } from '../../../redux/messages_reducer';
 
 
 
@@ -28,7 +29,9 @@ let mapStateToProps = (state) => {
 }
 let mapDispatchToProps = (dispatch) => {
   return {
-    
+    selectDialog: (id) => {
+      dispatch(selectDialog_AC(id));
+    }
   }
 }
 

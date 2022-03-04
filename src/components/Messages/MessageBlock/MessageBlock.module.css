@@ -1,15 +1,36 @@
-.dialogs {
-    display: grid;
-    grid-template-columns: 2fr 8fr;
-    max-height: 100vh;
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
-.dialogItems {
-    padding: 1rem 0;
-    border-right: solid #00014e 1px;
+.dialogMessages, .newMessage {
+    padding-left: 2rem;
 }
 
 .dialogMessages {
-    margin-left: 0.6rem;
-    padding-top: 1rem;
+    overflow-y: auto;
+}
+
+.newMessage {
+    height: 10vh;
+    margin-top: 2rem;
+    background: #7fa1e4;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    border-top: solid 1px #000000;
+}
+
+.newMessage textarea {
+    height: 60%;
+    width: 70%;
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.newMessage button {
+    height: 40%;
+    margin-left: 3rem;
 }

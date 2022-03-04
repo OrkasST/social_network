@@ -35,7 +35,8 @@ import MessageBlock from './MessageBlock';
 let mapStateToProps = (state) => {
   return {
     newMessageText: state.messagesPage.newMessageText,
-    data: state.messagesPage.messagesData
+    data: state.messagesPage.messagesData,
+    selectedDialog: state.messagesPage.selectedDialog
   }
 }
 let mapDispatchToProps = (dispatch) => {

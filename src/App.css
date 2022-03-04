@@ -1,11 +1,12 @@
 .app-wrapper {
   display: grid;
+  height: 100vh;
   width: 100%;
   grid-template-areas: 
   "header header"
   "nav content";
 
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 8vh 1fr;
   grid-template-columns: 2fr 10fr;
 }
 .app-content-wrapper {

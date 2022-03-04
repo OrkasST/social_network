@@ -1,5 +1,6 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SELECT_DIALOG = 'SELECT-DIALOG';
 
 let initialState = {
   dialogsData: [
@@ -12,37 +13,57 @@ let initialState = {
   ],
 
   messagesData: [
-    { id: '1.1', text: 'Hi!' },
-    { id: '1.2', text: 'How are you?' },
-    { id: '2.3', text: 'Hi :)' },
-    { id: '2.4', text: 'I\'m fine!\nWhat about you?' },
-    { id: '1.5', text: 'I\'m Ok :) Thanks' },
-    { id: '1.6', text: 'What do u do today evening' },
-    { id: '1.7', text: 'Yo! Are u here?' }
+    [],
+    [
+      { id: '1.1', text: 'Hi!' },
+      { id: '1.2', text: 'How are you?' },
+      { id: '2.3', text: 'Hi :)' },
+      { id: '2.4', text: 'I\'m fine!\nWhat about you?' },
+      { id: '1.5', text: 'I\'m Ok :) Thanks' },
+      { id: '1.6', text: 'What do u do today evening' },
+      { id: '1.7', text: 'Yo! Are u here?' }
+    ],
+    [
+      { id: '1.1', text: 'Hello!' },
+      { id: '1.2', text: 'How are you?' },
+      { id: '2.3', text: 'What do you want?' },
+      { id: '1.4', text: 'I\'m Ok, thanks )' },
+      { id: '1.5', text: 'What do u do today evening' },
+      { id: '1.6', text: 'Yo! Are u here?' }
+    ]
   ],
-  newMessageText: ''
+  newMessageText: '',
+  selectedDialog: 0
 };
 
 const messagesReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_MESSAGE: {
-      let lastId = Number(state.messagesData[state.messagesData.length-1].id.split('.')[1]);
+      let lastId = Number(state.messagesData[state.selectedDialog][state.messagesData[state.selectedDialog].length - 1].id.split('.')[1]);
       let Message = {
         id: `2.${lastId + 1}`,
         text: state.newMessageText
       }
-      return { 
+      return {
         ...state,
-        messagesData: [...state.messagesData, Message],
+        messagesData: state.messagesData.map((ms, i) => i === state.selectedDialog ? [...ms, Message] : ms),
         newMessageText: ''
       }
     }
 
     case UPDATE_NEW_MESSAGE_TEXT: {
-      return { 
+      return {
         ...state,
         newMessageText: action.newText
+      }
+    }
+
+    case SELECT_DIALOG: {
+      console.log(action.id);
+      return {
+        ...state,
+        selectedDialog: action.id
       }
     }
 
@@ -62,5 +83,12 @@ export const updateNewMessageText_ActionCreator = (text) => {
   return {
     type: UPDATE_NEW_MESSAGE_TEXT,
     newText: text
+  }
+}
+
+export const selectDialog_AC = (id) => {
+  return {
+    type: SELECT_DIALOG,
+    id
   }
 }
