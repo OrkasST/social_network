@@ -4,14 +4,14 @@ import s from './Dialog.module.css';
 
 const Dialog = (props) => {
   return (
-    <div className={s.dialog}>
+    <NavLink to={`/dialogs/${props.id}`} className={({isActive}) => s.dialog + (isActive ? ` ${s.active}` : '')}>
       <div className={s.dialogAva}>
         <img className={s.dialogAva_Image} src={props.ava} alt='dialog ava' />
       </div>
-      <NavLink to={`/dialogs/${props.id}`} activeclassname={s.active} >
+      <div className={s.dialogName}>
         {props.name || 'anonymos'}
-      </NavLink>
-    </div>
+      </div>
+    </NavLink>
   )
 }
 

@@ -1,6 +1,4 @@
 .dialogItems {
-    padding: 1rem 0;
-    padding-right: 0.5rem;
     border-right: solid #00014e 1px;
     overflow-y: auto;
 }

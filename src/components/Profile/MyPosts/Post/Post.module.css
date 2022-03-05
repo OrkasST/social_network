@@ -3,12 +3,20 @@
   padding: 0.4rem 0;
   margin-top: 0.4rem;
   margin-left: 0.4rem;
+  width: auto;
+  max-width: 80%;
 }
 .item .ava {
   width: 2rem;
   height: 2rem;
 
   border-radius: 50%;
+}
+
+.item hr {
+  width: 80%;
+  border: 0;
+  border-top: 0.1px solid #52538a;
 }
 
 .like {
