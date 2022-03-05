@@ -9,9 +9,7 @@ const Messages = (props) => {
   return (
     <div className={s.dialogs}>
       <DialogsContainer />
-      <Routes>
-        <Route path='/*' element={<MessageBlockContainer />} />
-      </Routes>
+      <MessageBlockContainer match={props.match} />
     </div>
   )
 }

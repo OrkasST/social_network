@@ -5,7 +5,9 @@ import s from './MessageBlock.module.css';
 
 const MessageBlock = (props) => {
 
-  let messages = props.data[props.selectedDialog] ? props.data[props.selectedDialog].map(message => <MessageItem data={message} key={message.id} />) : ['no messages'];
+  let msgId = props.match ? props.match.params.dialogId : 0
+
+  let messages = props.data[msgId] ? props.data[msgId].map(message => <MessageItem data={message} key={message.id} />) : ['no messages'];
 
   const onSendMessageClick = () => {
     props.sendMessage();
@@ -16,7 +18,7 @@ const MessageBlock = (props) => {
     props.updateNewMessageText(text);
   }
 
-  return props.selectedDialog > 0 ? (
+  return msgId > 0 ? (
     <div className={s.wrapper} >
       <div className={s.dialogMessages}>
         {messages}

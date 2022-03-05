@@ -1,18 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectDialog_AC } from '../../redux/messages_reducer';
+import { useMatch } from 'react-router-dom';
 import Messages from './Messages';
 
-let mapStateToProps = (state) => {
-  return {
-    selectedDialog: state.messagesPage.selectedDialog
+
+
+class MessagesContainer extends React.Component {
+  render() {
+    console.log(this.props);
+    return (
+      <Messages {...this.props} />
+    )
   }
 }
-let mapDispatchToProps = (dispatch) => {
-  return {
 
-  }
+let MessagesMatch = (props) => {
+  let match = useMatch('/dialogs/:dialogId/');
+  return (
+    <MessagesContainer {...props} match={match} />
+  )
 }
 
-const MessagesContainer = connect(mapStateToProps, mapDispatchToProps)(Messages);
-export default MessagesContainer;
+let mapStateToProps = (state) => { return {} }
+
+export default connect(mapStateToProps)(MessagesMatch);

@@ -1,6 +1,5 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const SELECT_DIALOG = 'SELECT-DIALOG';
 
 let initialState = {
   dialogsData: [
@@ -60,14 +59,6 @@ const messagesReducer = (state = initialState, action) => {
       }
     }
 
-    case SELECT_DIALOG: {
-      console.log(action.id);
-      return {
-        ...state,
-        selectedDialog: action.id
-      }
-    }
-
     default:
       return state;
   }
@@ -77,4 +68,3 @@ export default messagesReducer;
 
 export const sendMessage = () => { return { type: ADD_MESSAGE } }
 export const updateNewMessageText = (text) => { return { type: UPDATE_NEW_MESSAGE_TEXT, newText: text } }
-export const selectDialog = (id) => { return { type: SELECT_DIALOG, id } }

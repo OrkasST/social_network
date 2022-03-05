@@ -6,7 +6,7 @@ import ProfileInfo from './ProfileInfo/ProfileInfo';
 const Profile = (props) => {
   return (
     <div className={s.wrapper} >
-      <ProfileInfo />
+      <ProfileInfo userProfile={props.userProfile} />
       <MyPostsContainer />
     </div>
   )

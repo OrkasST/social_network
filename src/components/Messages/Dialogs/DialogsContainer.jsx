@@ -2,7 +2,6 @@ import React from 'react';
 // import StoreContext from '../../../StoreContext';
 import Dialogs from './Dialogs';
 import {connect} from 'react-redux';
-import { selectDialog } from '../../../redux/messages_reducer';
 
 
 
@@ -24,5 +23,5 @@ import { selectDialog } from '../../../redux/messages_reducer';
 
 let mapStateToProps = (state) => { return { data: state.messagesPage.dialogsData } }
 
-const DialogsContainer = connect(mapStateToProps, { selectDialog })(Dialogs)
+const DialogsContainer = connect(mapStateToProps)(Dialogs)
 export default DialogsContainer;

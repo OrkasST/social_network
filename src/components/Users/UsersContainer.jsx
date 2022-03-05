@@ -8,6 +8,7 @@ import Preloader from '../common/Preloader/Preloader';
 class UsersComponent extends React.Component {
 
     componentDidMount() {
+        if(this.props.users.length > 0) return;
         this.props.toggleIsFetching(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?count=${this.props.pageSize}&page=${this.props.currentPage}`)
             .then(response => {
