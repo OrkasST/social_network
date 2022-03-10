@@ -2,6 +2,7 @@ import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
 import userPhoto from '../../../assets/images/user-man.png'
+import ProfileStatus from './ProfileStatus/ProfileStatus';
 
 const ProfileInfo = (props) => {
   if (!props.userProfile) return <Preloader />
@@ -18,7 +19,9 @@ const ProfileInfo = (props) => {
           <b>{props.userProfile.fullName}</b>
         </div><br/><br/>
         <img src={ imgSrc } alt='user Avatar' /><br/><br/>
-        <div><b>Status: </b>{props.userProfile.aboutMe}</div>
+        {/* <div><b>Status: </b>{props.userProfile.aboutMe}</div> */}
+        <ProfileStatus aboutMe='Hello World!' />
+
         {props.userProfile.lookingForAJob ? <div><b>Finding job:</b> {props.userProfile.lookingForAJobDescription}</div> : <></>}
         <div>
           <b>Contacts: </b>
