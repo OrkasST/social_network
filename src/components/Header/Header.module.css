@@ -1,10 +1,41 @@
 .header {
   grid-area: header;
   background-color: #136fc0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 .header img {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
   height: 3rem;
+}
+
+.authBlock {
+  margin-right: 2rem;
+  font-size: 1.3rem;
+}
+
+.authBlock a {
+  color: #FFF;
+  text-decoration: none;
+  display: block;
+
+  border: 1px solid #FFF;
+  border-radius: 0.5rem;
+
+  padding: 0.5rem;
+}
+
+.authBlock span {
+  display: block;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.red {
+  font-size: 1.3rem;
+  color: #6b1212;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
-import s from './Preloader.module.css'
+import s from './Preloader.module.css';
+import loader from '../../../assets/images/Loader.svg';
 
 const Preloader = (props) => {
-    return (
-        <div className={s.ldsSpinner} ><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-    )
+    return <img src={loader} alt='loader' className={props.className} />
 }
 
 export default Preloader;

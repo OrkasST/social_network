@@ -1,10 +1,11 @@
 import React from 'react';
 import Preloader from '../../common/Preloader/Preloader';
 import s from './ProfileInfo.module.css';
+import userPhoto from '../../../assets/images/user-man.png'
 
 const ProfileInfo = (props) => {
-
   if (!props.userProfile) return <Preloader />
+  let imgSrc = props.userProfile.photos.large ? props.userProfile.photos.large : userPhoto;
   return (
     <div>
       <div className={s.content}>
@@ -12,11 +13,11 @@ const ProfileInfo = (props) => {
       </div>
       <br/>
 
-      <div>
+      <div className={s.userInfo}>
         <div>
           <b>{props.userProfile.fullName}</b>
         </div><br/><br/>
-        <img src={props.userProfile.photos.large} alt='user Avatar' /><br/><br/>
+        <img src={ imgSrc } alt='user Avatar' /><br/><br/>
         <div><b>Status: </b>{props.userProfile.aboutMe}</div>
         {props.userProfile.lookingForAJob ? <div><b>Finding job:</b> {props.userProfile.lookingForAJobDescription}</div> : <></>}
         <div>

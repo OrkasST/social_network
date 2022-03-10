@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap');
+
 .app-wrapper {
   display: grid;
   height: 100vh;
@@ -8,12 +10,13 @@
 
   grid-template-rows: 8vh 1fr;
   grid-template-columns: 2fr 10fr;
+
+  font-family: 'Abril Fatface', cursive;
 }
 .app-content-wrapper {
   grid-area: content;
   background-color: #7fb5e4;
 }
-
 
 ::-webkit-scrollbar {
   width: .5vw;

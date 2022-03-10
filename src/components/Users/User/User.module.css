@@ -12,6 +12,28 @@
     flex-direction: row;
 }
 
+.wrapper button {
+    margin-top: 0.6rem; 
+    position: relative;
+    width: 4rem;
+    height: 1.5rem;
+}
+
+.wrapper button:disabled {
+    position: relative;
+    width: 4rem;
+    height: 1.5rem;
+}
+
 .text {
     padding-left: 1rem;
+}
+
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 2rem;
 }

@@ -1,18 +1,14 @@
-import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
-import { useMatch, useParams } from 'react-router-dom';
-import { setUserProfile } from '../../redux/profile_reducer';
+import { useMatch } from 'react-router-dom';
+import { getUserProfile } from '../../redux/profile_reducer';
 import Profile from './Profile';
 
 class ProfileContainer extends React.Component {
 
     componentDidMount () {  
-        let userId = this.props.match ? this.props.match.params.userId : 2;
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
-            .then(response => {
-                this.props.setUserProfile(response.data);
-            })
+        let userId = this.props.match ? this.props.match.params.userId : this.props.userId;
+        this.props.getUserProfile(userId);
     }
 
     render () {
@@ -29,8 +25,10 @@ const ProfileMatch = (props) => {
 
 let mapStateToProps = (state) => {
     return {
-        userProfile: state.profilePage.userProfile
+        userProfile: state.profilePage.userProfile,
+        userId: state.authData.id,
+        isAuthorised: state.authData.isAuthorised
     }
 }
 
-export default connect(mapStateToProps, { setUserProfile } )(ProfileMatch);
+export default connect(mapStateToProps, { getUserProfile } )(ProfileMatch);
