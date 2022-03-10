@@ -1,26 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useMatch } from 'react-router-dom';
+import { compose } from 'redux';
+import withAuthRedirect from '../common/hoc/AuthCheck';
+import withURLCheck from '../common/hoc/withURLCheck';
 import Messages from './Messages';
 
 
 
 class MessagesContainer extends React.Component {
   render() {
-    console.log(this.props);
     return (
       <Messages {...this.props} />
     )
   }
 }
 
-let MessagesMatch = (props) => {
-  let match = useMatch('/dialogs/:dialogId/');
-  return (
-    <MessagesContainer {...props} match={match} />
-  )
-}
+let mapStateToProps = (state) => { return { } }
 
-let mapStateToProps = (state) => { return {} }
+export default compose(
+  withAuthRedirect,
+  withURLCheck('/dialogs/:dialogId/'),
+  connect(mapStateToProps)
+)(MessagesContainer);
 
-export default connect(mapStateToProps)(MessagesMatch);
+// let AuthRedirectComponent = withAuthRedirect(MessagesContainer);
+// let MessagesMatch = withURLCheck('/dialogs/:dialogId/');
+// export default connect(mapStateToProps)(MessagesMatch);

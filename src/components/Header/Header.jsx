@@ -6,8 +6,10 @@ const Header = (props) => {
   return (
     <header className={`${s.header}`}>
       <div>
-        <img src="https://pngpress.com/wp-content/uploads/2020/08/uploads_dragon_dragon_PNG84452.png" alt="" />
-        <span className={s.red}>RED DRAGON</span>
+        <NavLink to='/'>
+          <img src="https://pngpress.com/wp-content/uploads/2020/08/uploads_dragon_dragon_PNG84452.png" alt="" />
+          <span className={s.red}>RED DRAGON</span>
+        </NavLink>
       </div>
       <div className={s.authBlock} >
         <span>{
