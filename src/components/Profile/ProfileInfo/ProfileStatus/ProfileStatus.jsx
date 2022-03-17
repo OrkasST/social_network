@@ -3,7 +3,13 @@ import s from './ProfileStatus.module.css';
 
 class ProfileStatus extends React.Component {
     state = {
-        editMode: false
+        editMode: false,
+        status: this.props.aboutMe
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log('Component updated');
+        if (prevState.status !== this.props.aboutMe) this.setState({ status: this.props.aboutMe });
     }
 
     enterEditMode() {
@@ -15,6 +21,12 @@ class ProfileStatus extends React.Component {
         this.setState({
             editMode: false
         })
+        this.props.updateStatus(this.state.status)
+    }
+    onStatusChange = (e) => {
+        this.setState({
+            status: e.currentTarget.value
+        })
     }
 
     render() {
@@ -25,7 +37,7 @@ class ProfileStatus extends React.Component {
                 </div>
                 : <div className={s.editor}>
                     <span>New Status:</span>
-                    <input onBlur={this.exitEditMode} autoFocus={true} value={this.props.aboutMe} />
+                    <input onChange={this.onStatusChange} onBlur={this.exitEditMode} autoFocus={true} value={this.state.status} />
                 </div>
             }
         </div>

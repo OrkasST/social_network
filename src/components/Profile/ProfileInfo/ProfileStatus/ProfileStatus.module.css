@@ -1,5 +1,7 @@
 .wrapper {
+    position: relative;
     margin: 2rem;
+    height: 2rem;
 }
 
 .wrapper span {
@@ -12,8 +14,10 @@
 }
 
 .editor {
-    background: rgba(83, 59, 192, 0);
+    position: absolute;
+    background: rgba(127, 181, 228, 0.842);
     border-radius: 1rem;
+    top: -3rem;
     padding: 2rem;
     padding-top: 1.2rem;
     box-shadow: 0 0 1.2rem 0.6rem rgba(45, 45, 45, 0.2);

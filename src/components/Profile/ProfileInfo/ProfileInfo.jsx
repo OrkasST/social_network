@@ -19,8 +19,7 @@ const ProfileInfo = (props) => {
           <b>{props.userProfile.fullName}</b>
         </div><br/><br/>
         <img src={ imgSrc } alt='user Avatar' /><br/><br/>
-        {/* <div><b>Status: </b>{props.userProfile.aboutMe}</div> */}
-        <ProfileStatus aboutMe='Hello World!' />
+        <ProfileStatus aboutMe={props.profileStatus} updateStatus={props.updateProfileStatus} />
 
         {props.userProfile.lookingForAJob ? <div><b>Finding job:</b> {props.userProfile.lookingForAJobDescription}</div> : <></>}
         <div>

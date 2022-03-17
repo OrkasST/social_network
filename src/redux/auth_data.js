@@ -37,3 +37,13 @@ export const getAuthData = () => (dispatch) => {
             dispatch(getUserProfile(id));
         })
 }
+
+export const sendLoginData = (form) => (dispatch) => {
+    debugger;
+    AuthAPI.sendForm(form).then(data => {
+        debugger;
+        if (data.resultCode === 0) {
+
+        }
+    })
+}
